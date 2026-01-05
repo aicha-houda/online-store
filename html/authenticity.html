@@ -200,28 +200,6 @@
     </div>
   </div>
 
-  <script>
-    function verifyCode() {
-      const code = document.getElementById('auth-code').value.trim();
-      const resultDiv = document.getElementById('verification-result');
-      
-      if (!code || code.length !== 12) {
-        resultDiv.innerHTML = `<p style="color:red;">Please enter a valid 12-digit code</p>`;
-        return;
-      }
-      
-      
-      resultDiv.innerHTML = `
-        <div style="background:#f0fff0; padding:20px; border-radius:8px; border:1px solid #a0d8a0;">
-          <h3 style="color:green;"><i class="fas fa-check-circle"></i> Authentic Noulika Product</h3>
-          <p>Code: ${code.toUpperCase()}</p>
-          <p>This item is verified as an authentic Noulika product from our 2025 collection.</p>
-          <p>First verified on: ${new Date().toLocaleDateString()}</p>
-        </div>
-      `;
-      
-      
-    }
-  </script>
+
 </body>
 </html>
