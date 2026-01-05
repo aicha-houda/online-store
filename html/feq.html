@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* FAQ Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .faq-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .faq-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .faq-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .faq-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .faq-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .faq-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .category-btn {
+      background: #fff9fb;
+      color: var(--main_color);
+      padding: 10px 20px;
+      border: 1px solid #ffe6f2;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .category-btn:hover, .category-btn.active {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .faq-section {
+      margin-bottom: 40px;
+    }
+    
+    .faq-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ffe6f2;
+    }
+    
+    .faq-item {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      border: 1px solid #ffe6f2;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .faq-question {
+      color: var(--main_color);
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-question i {
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      color: var(--p_color);
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding-top: 10px;
+    }
+    
+    .contact-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .contact-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .contact-section p {
+      color: var(--p_color);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Footer Icon Styles */
+    .icons_footer {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .icons_footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--main_color);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .icons_footer a:hover {
+      background-color: #ffb6c1;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .faq-main {
+        padding: 40px 0;
+      }
+      
+      .faq-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .faq-intro h2 {
+        font-size: 1.8rem;
+      }
+      
+      .faq-categories {
+        flex-wrap: wrap;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .faq-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .faq-intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .icons_footer {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Frequently Asked Questions</h1>
+  </header>
+
+  <main class="faq-main">
+    <div class="faq-container">
+      <div class="faq-content">
+        <div class="faq-intro">
+          <h2>How can we help you?</h2>
+          <p>Find quick answers to common questions about orders, shipping, returns, and more.</p>
+        </div>
+        
+        <div class="faq-categories">
+          <button class="category-btn active" data-category="all">All Questions</button>
+          <button class="category-btn" data-category="orders">Orders</button>
+          <button class="category-btn" data-category="shipping">Shipping</button>
+          <button class="category-btn" data-category="returns">Returns</button>
+          <button class="category-btn" data-category="payments">Payments</button>
+          <button class="category-btn" data-category="account">Account</button>
+        </div>
+        
+        <div class="faq-section">
+          <h3>Order Questions</h3>
+          
+          <div class="faq-item" data-category="orders">
+            <div class="faq-question">
+              <span>How do I place an order?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>To place an order, simply browse our products, add items to your cart, and proceed to checkout. You'll need to provide your shipping information and payment details to complete your purchase.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="orders">
+            <div class="faq-question">
+              <span>Can I modify or cancel my order after placing it?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can modify or cancel your order within 30 minutes of placing it by contacting our customer service team at support@Noulika.com. After this window, we cannot guarantee changes as your order may already be in processing.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="orders">
+            <div class="faq-question">
+              <span>How do I track my order?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Once your order ships, you'll receive a confirmation email with a tracking number. You can use this number to track your package through our website or the carrier's website.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-section">
+          <h3>Shipping Information</h3>
+          
+          <div class="faq-item" data-category="shipping">
+            <div class="faq-question">
+              <span>What shipping options do you offer?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We offer several shipping options including standard (3-5 business days), expedited (2-3 business days), and express (1-2 business days). Shipping costs vary depending on the option you choose and your location.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="shipping">
+            <div class="faq-question">
+              <span>Do you ship internationally?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, we ship to most countries worldwide. International shipping rates and delivery times vary by destination. Please note that customers are responsible for any customs fees or import taxes.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="shipping">
+            <div class="faq-question">
+              <span>What should I do if my package is lost or stolen?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>If your tracking shows delivered but you haven't received your package, first check with neighbors and your local post office. If still missing, contact us within 14 days of the delivery date and we'll work with the carrier to resolve the issue.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-section">
+          <h3>Returns & Exchanges</h3>
+          
+          <div class="faq-item" data-category="returns">
+            <div class="faq-question">
+              <span>What is your return policy?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We accept returns within 30 days of delivery for most items in their original condition. Some items like cosmetics and underwear may not be returnable for hygiene reasons. Please see our full return policy for details.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="returns">
+            <div class="faq-question">
+              <span>How do I initiate a return?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>To initiate a return, log into your account and go to your order history. Select the item(s) you wish to return and follow the instructions. You'll receive a return label to print and attach to your package.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="returns">
+            <div class="faq-question">
+              <span>How long does it take to process a refund?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Once we receive your return, it typically takes 3-5 business days to process. Refunds are issued to your original payment method and may take additional time to appear on your statement depending on your bank.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-section">
+          <h3>Payment Methods</h3>
+          
+          <div class="faq-item" data-category="payments">
+            <div class="faq-question">
+              <span>What payment methods do you accept?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, Google Pay, and Noulika Store gift cards.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="payments">
+            <div class="faq-question">
+              <span>Is it safe to enter my credit card information?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Yes, our website uses industry-standard SSL encryption to protect your information. We don't store your full credit card details on our servers.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="payments">
+            <div class="faq-question">
+              <span>Why was my payment declined?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Payment declines can happen for several reasons: insufficient funds, incorrect card details, or your bank's fraud protection. Try again with correct information, contact your bank, or use an alternative payment method.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-section">
+          <h3>Account Management</h3>
+          
+          <div class="faq-item" data-category="account">
+            <div class="faq-question">
+              <span>How do I create an account?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Click "Sign Up" at the top of any page and enter your email address and a password. You can also create an account during checkout.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="account">
+            <div class="faq-question">
+              <span>I forgot my password. How can I reset it?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Click "Forgot Password" on the login page and enter your email address. You'll receive a link to create a new password.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item" data-category="account">
+            <div class="faq-question">
+              <span>How do I update my account information?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Log into your account and go to "Account Settings" where you can update your personal information, shipping addresses, and password.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-section">
+          <h3>Still have questions?</h3>
+          <p>Can't find the answer you're looking for? Our customer service team is happy to help!</p>
+          <div class="home-button-container">
+            <a href="/memoire/html/contact.html" class="btn-home">
+              <i class="fas fa-envelope"></i> Contact Us
+            </a>
+          </div>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // FAQ functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      
+      // Toggle FAQ answers
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+        });
+      });
+      
+      // Filter by category
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          const category = btn.dataset.category;
+          
+          // Show/hide questions based on category
+          faqItems.forEach(item => {
+            if (category === 'all' || item.dataset.category === category) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

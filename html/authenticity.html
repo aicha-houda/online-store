@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authenticity Verification | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: var(--p_color);
+      line-height: 1.6;
+    }
+    
+    .auth-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px;
+      background: var(--white_color);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .auth-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .auth-header h1 {
+      color: var(--main_color);
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .verification-steps {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    
+    .step {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+      padding: 20px;
+      margin: 10px;
+      background: #fff9fb;
+      border-radius: 10px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .step-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--main_color);
+      color: white;
+      border-radius: 50%;
+      line-height: 40px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .verification-form {
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .verification-form input {
+      width: 300px;
+      padding: 15px;
+      border: 1px solid #ffe6f2;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    
+    .verify-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .verify-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .security-features {
+      margin-top: 50px;
+      background: #fff9fb;
+      padding: 30px;
+      border-radius: 10px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .feature-icon {
+      font-size: 1.5rem;
+      color: var(--main_color);
+      margin-right: 15px;
+      min-width: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .verification-steps {
+        flex-direction: column;
+      }
+      
+      .verification-form input {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-header">
+      <h1><i class="fas fa-shield-alt"></i> Authenticity Verification</h1>
+      <p>Verify your Noulika product using the unique security code from your item's tag</p>
+    </div>
+    
+    <div class="verification-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Locate the Tag</h3>
+        <p>Find the authenticity tag inside your Noulika clothing item</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Enter the Code</h3>
+        <p>Type the 12-digit code from the tag below</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Get Verification</h3>
+        <p>Receive instant confirmation of your item's authenticity</p>
+      </div>
+    </div>
+    
+    <div class="verification-form">
+      <input type="text" id="auth-code" placeholder="Enter 12-digit code" maxlength="12" pattern="[A-Z0-9]{12}" required>
+      <button class="verify-btn" onclick="verifyCode()">Verify Now</button>
+    </div>
+    
+    <div id="verification-result" style="text-align: center; margin: 30px 0;"></div>
+    
+    <div class="security-features">
+      <h2><i class="fas fa-lock"></i> Genuine Noulika Security Features</h2>
+      
+      <div class="feature">
+        <div class="feature-icon"><i class="fas fa-qrcode"></i></div>
+        <div>
+          <h3>Unique Authentication Code</h3>
+          <p>Every item has a scannable, one-time-use code woven into the care label</p>
+        </div>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+        <div>
+          <h3>Holographic Security Sticker</h3>
+          <p>Our hologram changes color when tilted and shows hidden Noulika branding</p>
+        </div>
+      </div>
+      
+      <div class="feature">
+        <div class="feature-icon"><i class="fas fa-flag"></i></div>
+        <div>
+          <h3>Quality Craftsmanship</h3>
+          <p>Look for even stitching, premium fabric, and precise logo placement</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function verifyCode() {
+      const code = document.getElementById('auth-code').value.trim();
+      const resultDiv = document.getElementById('verification-result');
+      
+      if (!code || code.length !== 12) {
+        resultDiv.innerHTML = `<p style="color:red;">Please enter a valid 12-digit code</p>`;
+        return;
+      }
+      
+      
+      resultDiv.innerHTML = `
+        <div style="background:#f0fff0; padding:20px; border-radius:8px; border:1px solid #a0d8a0;">
+          <h3 style="color:green;"><i class="fas fa-check-circle"></i> Authentic Noulika Product</h3>
+          <p>Code: ${code.toUpperCase()}</p>
+          <p>This item is verified as an authentic Noulika product from our 2025 collection.</p>
+          <p>First verified on: ${new Date().toLocaleDateString()}</p>
+        </div>
+      `;
+      
+      
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Success - Online Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/memoire/css/style.css">
+  <link rel="stylesheet" href="/memoire/css/login.css">
+  
+  <style>
+    :root {
+      --primary: pink;
+      --secondary: #ff6b9d;
+      --accent: #f8c537;
+    }
+    
+    .success-main {
+      padding: 40px 0;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9f9f9;
+    }
+    
+    .success-container {
+      background: white;
+      border: 3px solid var(--primary);
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      box-shadow: 0 8px 20px pink(46, 204, 113, 0.2);
+      text-align: center;
+    }
+    
+    .success-container h2 {
+      color: var(--primary);
+      margin-bottom: 25px;
+      font-size: 24px;
+      padding-bottom: 10px;
+    }
+    
+    .success-icon {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    
+    .success-container p {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--p_color);
+      line-height: 1.5;
+    }
+    
+    .login-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .login-btn:hover {
+      background: pink;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .success-main {
+        padding: 30px 0;
+      }
+      
+      .success-container {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .success-container {
+        padding: 25px 20px;
+      }
+      
+      .success-container h2 {
+        font-size: 20px;
+      }
+      
+      .success-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <!-- Success Message Content -->
+    <main class="success-main">
+        <div class="container">
+            <div class="success-container">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Registration Successful!</h2>
+                <p>Your account has been created successfully. Welcome to our community! You can now log in to access your account.</p>
+                <a href="/memoire/html/login.html" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Continue to Login
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="">
+                <p>Follow us on social media for the latest updates and special promotions!</p>
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Find It Fast</h4>
+                <div class="links">
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothings</a>
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i>Shoes</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Parfum</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Make Up</a>
+                    <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Quick Links</h4>
+                <div class="links">
+                    <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+                    <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+                    <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a>
+                    <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Estimated Delivery Time</a>
+                    <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Service us</h4>
+                <div class="links">
+                    <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+                    <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help</a>
+                    <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQS</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Noulika Store.</span> All Rights Reserved.</p>
+                <div class="payment_img">
+                    <img src="/memoire/img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/memoire/script/swiper.js"></script>
+    <script src="/memoire/script/items_home.js"></script>
+    <script src="/memoire/script/main.js"></script>
+</body>
+</html>

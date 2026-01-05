@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Promotions | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* Promotions Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .promo-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .promo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .promo-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .promo-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .promo-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .promo-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .promo-card {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .promo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .promo-badge {
+      position: absolute;
+      top: 15px;
+      right: -30px;
+      background: var(--main_color);
+      color: white;
+      padding: 5px 30px;
+      transform: rotate(45deg);
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    
+    .promo-card h3 {
+      color: var(--main_color);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      padding-right: 40px;
+    }
+    
+    .promo-card p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .promo-code {
+      display: inline-block;
+      background: #ffe6f2;
+      color: var(--main_color);
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      margin: 10px 0;
+      border: 1px dashed var(--main_color);
+    }
+    
+    .promo-date {
+      color: #999;
+      font-size: 0.9rem;
+      margin-top: 15px;
+      font-style: italic;
+    }
+    
+    .promo-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    
+    .promo-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .coming-soon {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .coming-soon h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .upcoming-promos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    
+    .upcoming-item {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      width: calc(33.333% - 20px);
+      min-width: 250px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      border: 1px solid #ffe6f2;
+    }
+    
+    .upcoming-item h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+    }
+    
+    .upcoming-item p {
+      color: var(--p_color);
+      font-size: 0.9rem;
+    }
+    
+    .loyalty-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+    }
+    
+    .loyalty-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .loyalty-benefits {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .benefit {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .benefit i {
+      font-size: 2.5rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .benefit h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+    }
+    
+    .benefit p {
+      color: var(--p_color);
+      font-size: 0.9rem;
+    }
+    
+    .signup-cta {
+      margin-top: 40px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .cta-btn.outline {
+      background: white;
+      color: var(--main_color);
+      border: 2px solid var(--main_color);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Footer Icon Styles */
+    .icons_footer {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .icons_footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--main_color);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .icons_footer a:hover {
+      background-color: #ffb6c1;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .promo-main {
+        padding: 40px 0;
+      }
+      
+      .promo-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .promo-intro h2 {
+        font-size: 1.8rem;
+      }
+      
+      .promo-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .upcoming-item {
+        width: calc(50% - 20px);
+      }
+      
+      .benefit {
+        min-width: 150px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .promo-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .promo-intro h2 {
+        font-size: 1.6rem;
+      }
+      
+      .upcoming-item {
+        width: 100%;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .icons_footer {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Current Promotions</h1>
+  </header>
+
+  <main class="promo-main">
+    <div class="promo-container">
+      <div class="promo-content">
+        <div class="promo-intro">
+          <h2>Special Offers Just For You</h2>
+          <p>Take advantage of these limited-time promotions and save on your favorite Noulika products.</p>
+        </div>
+        
+        <div class="promo-grid">
+          <div class="promo-card">
+            <div class="promo-badge">HOT</div>
+            <h3>Summer Savings Event</h3>
+            <p>Enjoy 20% off all outdoor furniture perfect for your summer gatherings and relaxation.</p>
+            <div class="promo-code">Use code: SUMMER20</div>
+            <p class="promo-date">Valid through August 31st</p>
+            <a href="/memoire/html/index.html" class="promo-btn">Shop Now</a>
+          </div>
+          
+          <div class="promo-card">
+            <div class="promo-badge">NEW</div>
+            <h3>First Order Discount</h3>
+            <p>New customers get 15% off their first order - no code needed, discount applies automatically!</p>
+            <p class="promo-date">Limited time offer</p>
+            <a href="/memoire/html/register.html" class="promo-btn">Create Account</a>
+          </div>
+          
+          <div class="promo-card">
+            <div class="promo-badge">DEAL</div>
+            <h3>Bundle & Save</h3>
+            <p>Buy any 3 items and get the 4th at 50% off. Mix and match across categories.</p>
+            <p class="promo-date">While supplies last</p>
+            <a href="/memoire/html/index.html" class="promo-btn">View Bundles</a>
+          </div>
+          
+          <div class="promo-card">
+            <div class="promo-badge">FLASH</div>
+            <h3>Weekend Special</h3>
+            <p>25% off all beauty products this weekend only. Perfect time to stock up!</p>
+            <div class="promo-code">Use code: BEAUTY25</div>
+            <p class="promo-date">Friday-Sunday only</p>
+            <a href="/memoire/html/index.html" class="promo-btn">Shop Beauty</a>
+          </div>
+          
+          <div class="promo-card">
+            <div class="promo-badge">VIP</div>
+            <h3>Loyalty Members Exclusive</h3>
+            <p>Extra 10% off for loyalty members - stack with other promotions for maximum savings.</p>
+            <p class="promo-date">Members only</p>
+            <a href="/memoire/html/login.html" class="promo-btn">Sign In</a>
+          </div>
+          
+          <div class="promo-card">
+            <div class="promo-badge">FREE</div>
+            <h3>Free Shipping</h3>
+            <p>All orders over $50 ship free! No code needed, applies automatically at checkout.</p>
+            <p class="promo-date">Continental US only</p>
+            <a href="/memoire/html/index.html" class="promo-btn">Start Shopping</a>
+          </div>
+        </div>
+        
+        <div class="coming-soon">
+          <h3>Coming Soon</h3>
+          <p>Mark your calendars for these upcoming promotions:</p>
+          
+          <div class="upcoming-promos">
+            <div class="upcoming-item">
+              <h4>Labor Day Blowout</h4>
+              <p>Up to 40% off select items</p>
+              <p><strong>Starts:</strong> September 1st</p>
+            </div>
+            
+            <div class="upcoming-item">
+              <h4>Flash Sale</h4>
+              <p>24-hour 30% off sitewide</p>
+              <p><strong>Date:</strong> Surprise announcement</p>
+            </div>
+            
+            <div class="upcoming-item">
+              <h4>Fall Collection Launch</h4>
+              <p>Early access for loyalty members</p>
+              <p><strong>Starts:</strong> September 15th</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="loyalty-section">
+          <h3>Join Our Loyalty Program</h3>
+          <p>Earn points with every purchase and unlock exclusive promotions, early access to sales, and special birthday rewards.</p>
+          
+          <div class="loyalty-benefits">
+            <div class="benefit">
+              <i class="fas fa-star"></i>
+              <h4>Earn Points</h4>
+              <p>1 point for every $1 spent</p>
+            </div>
+            
+            <div class="benefit">
+              <i class="fas fa-gift"></i>
+              <h4>Exclusive Deals</h4>
+              <p>Members-only promotions</p>
+            </div>
+            
+            <div class="benefit">
+              <i class="fas fa-birthday-cake"></i>
+              <h4>Birthday Reward</h4>
+              <p>Special gift on your birthday</p>
+            </div>
+            
+            <div class="benefit">
+              <i class="fas fa-earlybirds"></i>
+              <h4>Early Access</h4>
+              <p>Shop sales before the public</p>
+            </div>
+          </div>
+          
+          <div class="signup-cta">
+            <p>Sign up today and get 100 bonus points!</p>
+            <div class="cta-buttons">
+              <a href="/memoire/html/register.html" class="cta-btn">Join Now</a>
+              <a href="/memoire/html/loyalty.html" class="cta-btn outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

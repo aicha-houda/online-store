@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noulika | Online Store</title>
+
+    <link rel="icon" href="/memoire/image/logo.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/memoire/CSS/style.css">
+</head>
+
+<body>
+
+    <div class="cart">
+        <div class="top_cart">
+            <h3>Cart Items : <span class="Count_item_cart">0</span></h3>
+            <span onclick="open_close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
+        </div>
+        <div class="items_in_cart" id="cart_items"></div>
+        <div class="bottom_cart">
+            <div class="total">
+                <p>subtotal</p>
+                <p class="price_cart_toral">$0</p>
+            </div>
+            <div class="button_cart">
+                <a href="#" class="btn_cart btn">Checkout</a>
+                <span onclick="open_close_cart()" class="btn_cart trans_bg btn">Shop More</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="#" class="logo"> <img src="/memoire/image/logo.svg" alt=""></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+
+                            <option value="All Categories">All Categories</option>
+                            <option value="clothing_shoes ">Clothings & Shoes</option>
+                            <option value="makeup_parfum ">Make Up & Parfum</option>
+                            <option value="accessories">Accessories </option>
+
+                        </select>
+                    </div>
+                    <input type="text" name="search" id="search" placeholder="Search for Products" required>
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#">
+                            <i class="fa-regular fa-heart"></i>
+                            <span class="count count_favourite">0</span>
+                        </a>
+                    </div>
+                    <div onclick="open_close_cart()" class="icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="count count_item_header">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+                    <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+                    <div class="category_nav">
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa-solid fa-bars"></i>
+                            <p>Browse Category</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                        <div class="category_nav_list">
+                            <a href="#">Top 10 Offers</a>
+                            <a href="#swiper_clothing_shoes">Clothings & Shoes </a>
+                            <a href="#swiper_makeup_parfum">Make Up & Parfum</a>
+                            <a href="#swiper_accessories">Accessories</a>
+                            
+                        </div>
+
+                    </div>
+                    <ul class="nav_links">
+                        <span onclick="open_Menu()" class="close_menu"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <li class="active"><a href="/memoire/html/index.html">Home</a></li>
+                        <li><a href="/memoire/html/about.html">About</a></li>
+                        <li><a href="#swiper_accessories">Accesories</a></li>
+                        <li><a href="/memoire/html/blog.html">Blog</a></li>
+                        <li><a href="/memoire/html/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="login_signup btns">
+                    <a href="/memoire/html/login.html" class="btn">Login  <i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="/memoire/html/register.html" class="btn">Sign UP <i class="fa-solid fa-user-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="checkout">
+        <form id="checkoutForm" action="/memoire/php/checkout_process.php" method="POST">
+
+
+            <div class="container">
+                <div class="ordersummary">
+                    <h1>Order Summary</h1>
+                    <div class="items" id="checkout_items"></div>
+                    <div class="bottom_summary">
+                        <div class="shop_table">
+                            <p>Subtotal :</p>
+                            <span class="subtotal_checkout"></span>
+                        </div>
+                        <div class="shop_table">
+                            <p>Shipping :</p>
+                            <span>$20.00</span>
+                        </div>
+                        <div class="shop_table">
+                            <p>Total :</p>
+                            <span class="total_checkout"></span>
+                        </div>
+                        <div class="button_div">
+                            <button type="submit" id="place-order-button">Place Order</button>
+
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="input_info">
+                    <div class="address">
+                        <h2>Delivery address</h2>
+                        <div class="inputs">
+                            <label for="">Email</label>
+                            <input type="email" name="email" placeholder="Enter your email" required>
+                            <label for="">Full Name</label>
+                            <input type="text" name="name" placeholder="Enter your full name" required>
+                            <label for="">Country</label>
+                           <input type="text" name="country" placeholder="Enter your country" required>
+                            <label for="">Address</label>
+                            <input type="text" name="address" placeholder="Enter your address" required>
+                            <label for="">Phone</label>
+                            <input type="number" name="phone" placeholder="Enter your phone" required>
+                            <label for="">City</label>
+                            <input type="text" name="city" placeholder="Enter your City" required>
+                            <label for="">Postal Code</label>
+                           <input type="text" name="postal_code" placeholder="Enter your Postal Code" required>
+                           <label for="">ZIP</label>
+                           <input type="text" name="zip" placeholder="Enter your zip" required>
+                        </div>
+                    </div>
+    
+                    <div class="coupon">
+                        <h2>Coupon code</h2>
+                        <div class="inputs">
+                            <label for="">Coupon code</label>
+                            <input type="text" name="coupon" placeholder="Enter your coupon code">
+                        </div>
+                        <div class="btn_coupon">
+                            <button type="button">Apply Coupon</button>
+                        </div>
+                    </div>
+    
+                    <!-- New Payment Method Section -->
+                    <div class="payment_method">
+                        <h2>Payment Method</h2>
+                        <div class="inputs">
+                            <label>
+                                <input type="radio" name="payment_method" value="Credit Card" required> Credit Card
+                            </label><br>
+                            <label>
+                                <input type="radio" name="payment_method" value="PayPal"> PayPal
+                            </label><br>
+                            <label>
+                                <input type="radio" name="payment_method" value="Cash on Delivery"> Cash on Delivery
+                            </label>
+                        </div>
+                    </div>
+                    <div id="paypal-button-container"></div>
+                    <!-- End Payment Method Section -->
+    
+                </div>
+    
+                <input type="hidden" name="cart_data" id="cart_data">
+            </div>
+
+        </form>
+    </section>
+    
+
+    <footer>
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="">
+                <p>Follow us on social media for the latest updates and special promotions!</p>
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Find It Fast</h4>
+
+                <div class="links">
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothings </a>
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i>Shoes</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Parfum</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Make Up</a>
+                    <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Quick Links</h4>
+
+                <div class="links">
+                    <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account </a>
+                    <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+                    <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a>
+                    <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Estimated Delivery Time</a>
+                    <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase Hisotry</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Service us</h4>
+
+                <div class="links">
+                    <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+                    <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help</a>
+                    <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQS</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Noulika Store.</span> All Rights Reserved.</p>
+                <div class="payment_img">
+                    <img src="img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Previous HTML remains the same until the scripts section -->
+
+    
+    <script src="https://www.paypal.com/sdk/js?client-id=ASPKil61zCAWJelpH8sy016WjcJ88mE6Iuo25j8zRSZVI2k1RW7IeKgB0VRvhEsStn1pNu8l8npyQx6-&currency=USD"></script>
+
+    <script>
+      const form = document.getElementById("checkoutForm");
+    document.addEventListener('DOMContentLoaded', () => {
+        // Handle dynamic enable/disable of Place Order button
+    const placeOrderButton = document.getElementById("place-order-button");
+    form.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.checked && radio.value === "PayPal") {
+          placeOrderButton.disabled = true;
+          placeOrderButton.style.opacity = "0.5";
+          placeOrderButton.style.pointerEvents = "none";
+        } else {
+          placeOrderButton.disabled = false;
+          placeOrderButton.style.opacity = "1";
+          placeOrderButton.style.pointerEvents = "auto";
+        }
+      });
+    });
+    
+      const form = document.getElementById("checkoutForm");
+      const cartInput = document.getElementById("cart_data");
+    
+      if (!form || !cartInput) return;
+    
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+    
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (!cart.length) {
+          alert("Your cart is empty!");
+          return;
+        }
+    
+        const paymentMethod = form.querySelector('input[name="payment_method"]:checked');
+        if (!paymentMethod) {
+          alert("Please select a payment method");
+          return;
+        }
+    
+        cartInput.value = JSON.stringify(cart);
+    
+        if (paymentMethod.value === "PayPal") return; // Let PayPal handle it
+    
+        const formData = new FormData(form);
+    
+        try {
+          fetch('/memoire/php/checkout_process.php', {
+      method: 'POST',
+      body: formData,
+      credentials: 'include',
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success && data.redirect) {
+        // Redirect the browser
+        window.location.href = data.redirect;
+      } else {
+        alert("Checkout failed: " + (data.error || "Unknown error"));
+      }
+    })
+    .catch(error => {
+      console.error('Checkout error:', error);
+    });
+    
+          const data = await res.json();
+    
+          if (data.success) {
+            localStorage.removeItem("cart");
+            window.location.href = data.redirect;
+          } else {
+            alert("Error: " + (data.error || "Unknown error"));
+          }
+        } catch (err) {
+          console.error("Checkout failed:", err);
+          alert("Checkout failed. Check console.");
+        }
+      });
+    
+      // PAYPAL button
+      if (window.paypal) {
+        paypal.Buttons({
+      createOrder: function(data, actions) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+    
+        return fetch('/memoire/php/paypal_create_order.php', {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            cart: cart,
+            customer: {
+              name: form.querySelector('[name="name"]').value,
+              email: form.querySelector('[name="email"]').value,
+              phone: form.querySelector('[name="phone"]').value,
+              address: form.querySelector('[name="address"]').value
+            }
+          })
+        })
+        .then(response => response.json())
+        .then(orderData => orderData.id);
+      },
+    
+      // ✅ INSERT FIXED VERSION HERE
+      onApprove: function(data, actions) {
+      return actions.order.capture().then(async function(details) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const form = document.getElementById("checkoutForm");
+    
+        // Collect form fields
+        const payload = {
+          from_paypal: true,
+          payment_method: 'PayPal',
+          payment_status: 'completed',
+          cart_data: cart,
+          name: form.querySelector('[name="name"]').value,
+          email: form.querySelector('[name="email"]').value,
+          phone: form.querySelector('[name="phone"]').value,
+          address: form.querySelector('[name="address"]').value,
+          country: form.querySelector('[name="country"]').value,
+          city: form.querySelector('[name="city"]').value,
+          postal_code: form.querySelector('[name="postal_code"]').value,
+          zip: form.querySelector('[name="zip"]').value,
+          coupon: form.querySelector('[name="coupon"]').value,
+        };
+    
+        try {
+          const res = await fetch('/memoire/php/checkout_process.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify(payload)
+          });
+    
+          const result = await res.json();
+          if (result.success) {
+            localStorage.removeItem("cart");
+            window.location.href = result.redirect;
+          } else {
+            alert("Payment succeeded but order failed: " + (result.error || "Unknown error"));
+          }
+        } catch (err) {
+          console.error("Failed to complete PayPal order:", err);
+          alert("An error occurred while finalizing the order.");
+        }
+      });
+    },
+    
+      onError: function(err) {
+        console.error('PayPal error:', err);
+        alert('An error occurred with PayPal. Please try another payment method.');
+      }
+    }).render("#paypal-button-container");
+    
+      }
+    });
+    </script>
+
+
+    <script src="/memoire/script/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Support | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* Account Support Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .account-support-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .account-support-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .account-support-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .account-support-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .account-support-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .account-support-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .account-issues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .account-issue-card {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .account-issue-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .account-issue-card h3 {
+      color: var(--main_color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .account-issue-card h3 i {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+    
+    .account-issue-card p {
+      color: var(--p_color);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .solution-steps {
+      background-color: #fff0f5;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .solution-steps h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .solution-steps ol {
+      padding-left: 20px;
+      margin: 0;
+    }
+    
+    .solution-steps li {
+      color: var(--p_color);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    
+    .support-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .support-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .account-form-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+    }
+    
+    .account-form-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .account-form-section p {
+      color: var(--p_color);
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    
+    .contact-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Footer Icon Styles */
+    .icons_footer {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .icons_footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--main_color);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .icons_footer a:hover {
+      background-color: #ffb6c1;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .account-support-main {
+        padding: 40px 0;
+      }
+      
+      .account-support-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .account-support-intro h2 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .account-support-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .account-support-intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .icons_footer {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Account Support</h1>
+  </header>
+
+  <main class="account-support-main">
+    <div class="account-support-container">
+      <div class="account-support-content">
+        <div class="account-support-intro">
+          <h2>Having trouble with your account?</h2>
+          <p>We're here to help you with any account-related issues you might be experiencing. Below you'll find solutions to common problems or you can contact our support team directly.</p>
+        </div>
+        
+        <div class="account-issues-grid">
+          <div class="account-issue-card">
+            <h3><i class="fas fa-key"></i> Forgot Password</h3>
+            <p>Can't remember your password? Reset it quickly and securely.</p>
+            
+            <div class="solution-steps">
+              <h4>How to reset your password:</h4>
+              <ol>
+                <li>Go to the login page</li>
+                <li>Click on "Forgot Password"</li>
+                <li>Enter your email address</li>
+                <li>Check your email for a password reset link</li>
+                <li>Create a new password</li>
+              </ol>
+            </div>
+            
+            <a href="/memoire/html/forgot-password.html" class="support-btn">Reset Password Now</a>
+          </div>
+          
+          <div class="account-issue-card">
+            <h3><i class="fas fa-user-lock"></i> Can't Log In</h3>
+            <p>Having trouble accessing your account? Try these solutions.</p>
+            
+            <div class="solution-steps">
+              <h4>Troubleshooting steps:</h4>
+              <ol>
+                <li>Ensure you're using the correct email address</li>
+                <li>Check your password for typos</li>
+                <li>Clear your browser cache and cookies</li>
+                <li>Try a different browser or device</li>
+                <li>If locked out, wait 30 minutes and try again</li>
+              </ol>
+            </div>
+            
+            <a href="/memoire/html/contact.html" class="support-btn">Still Can't Log In?</a>
+          </div>
+          
+          <div class="account-issue-card">
+            <h3><i class="fas fa-envelope"></i> Email Not Recognized</h3>
+            <p>Our system doesn't recognize your email? Here's what to do.</p>
+            
+            <div class="solution-steps">
+              <h4>Possible solutions:</h4>
+              <ol>
+                <li>Check for typos in your email address</li>
+                <li>Try any alternate email addresses you might have used</li>
+                <li>Check if you created an account with a social login</li>
+                <li>You may need to create a new account</li>
+              </ol>
+            </div>
+            
+            <a href="/memoire/html/register.html" class="support-btn">Create New Account</a>
+          </div>
+          
+          <div class="account-issue-card">
+            <h3><i class="fas fa-user-edit"></i> Update Account Info</h3>
+            <p>Need to change your personal information or preferences?</p>
+            
+            <div class="solution-steps">
+              <h4>How to update your information:</h4>
+              <ol>
+                <li>Log in to your account</li>
+                <li>Go to "Account Settings"</li>
+                <li>Edit your personal details</li>
+                <li>Save your changes</li>
+              </ol>
+            </div>
+            
+            <a href="/memoire/html/login.html" class="support-btn">Go to Account Settings</a>
+          </div>
+          
+          <div class="account-issue-card">
+            <h3><i class="fas fa-shield-alt"></i> Account Security</h3>
+            <p>Concerned about your account security? Protect it now.</p>
+            
+            <div class="solution-steps">
+              <h4>Security recommendations:</h4>
+              <ol>
+                <li>Use a strong, unique password</li>
+                <li>Enable two-factor authentication</li>
+                <li>Check recent login activity</li>
+                <li>Update your security questions</li>
+              </ol>
+            </div>
+            
+            <a href="/memoire/html/login.html" class="support-btn">Enhance Security</a>
+          </div>
+          
+          <div class="account-issue-card">
+            <h3><i class="fas fa-trash-alt"></i> Delete Account</h3>
+            <p>Want to permanently remove your account from our system?</p>
+            
+            <div class="solution-steps">
+              <h4>Before you delete:</h4>
+              <ol>
+                <li>Download any order history you want to keep</li>
+                <li>Cancel any active subscriptions</li>
+                <li>Use up any store credits or gift cards</li>
+                <li>Account deletion is permanent and cannot be undone</li>
+              </ol>
+            </div>
+            
+            <a href="/memoire/html/login.html" class="support-btn">Delete Account</a>
+          </div>
+        </div>
+        
+        <div class="account-form-section">
+          <h3>Still Need Help?</h3>
+          <p>If you didn't find the solution to your problem above, please contact our support team directly.</p>
+          <a href="/memoire/html/contact.html" class="contact-btn">
+            <i class="fas fa-envelope"></i> Contact Support
+          </a>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

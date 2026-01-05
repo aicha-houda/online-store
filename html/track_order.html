@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Track Your Order | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css" />
+  <style>
+    /* Track Order Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+      --error_color: #e74c3c;
+    }
+
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .track-order-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+
+    .track-order-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .track-order-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.15);
+      border: 3px solid var(--main_color);
+    }
+
+    .track-order-form {
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    #orderNumberGroup,
+    #email {
+      margin-top: 1rem;
+    }
+
+    #orderNumberGroup input,
+    #email {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--main_color);
+      border-radius: 8px;
+      font-size: 16px;
+      outline-offset: 2px;
+      transition: border-color 0.3s ease;
+    }
+
+    #orderNumberGroup input:focus,
+    #email:focus {
+      border-color: #ff7eb9;
+      box-shadow: 0 0 8px rgba(255, 182, 193, 0.6);
+    }
+
+    .error-message {
+      color: var(--error_color);
+      margin-top: 5px;
+      font-size: 14px;
+      display: none;
+    }
+
+    #trackButton {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 14px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+
+    #trackButton:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+
+    #trackButton:disabled {
+      background: #f9c1cb;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    #trackButton .spinner {
+      display: none;
+      margin-right: 8px;
+    }
+
+    #trackButton.active .spinner {
+      display: inline-block;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #trackingResults {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background: #fff9fb;
+      border-radius: 10px;
+      border: 1px solid #ffe6f2;
+      animation: fadeIn 0.5s ease;
+      color: var(--p_color);
+      font-size: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tracking-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .tracking-status {
+      color: var(--main_color);
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .tracking-steps {
+      margin-top: 20px;
+    }
+
+    .tracking-step {
+      display: flex;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed #ffe6f2;
+    }
+
+    .step-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--main_color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .step-active .step-icon {
+      background: #4CAF50;
+    }
+
+    .step-details {
+      flex-grow: 1;
+    }
+
+    .step-date {
+      color: var(--p_color);
+      font-size: 0.9em;
+    }
+
+    .order-details {
+      margin-top: 30px;
+    }
+
+    .order-items {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .order-items th {
+      background: var(--main_color);
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .order-items td {
+      padding: 10px;
+      border-bottom: 1px solid #ffe6f2;
+    }
+
+    .help-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .help-btn {
+      background: var(--white_color);
+      color: var(--main_color);
+      padding: 12px 30px;
+      border: 2px solid var(--main_color);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .help-btn:hover {
+      background: var(--main_color);
+      color: var(--white_color);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .track-order-main {
+        padding: 40px 0;
+      }
+      
+      .track-order-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .tracking-header {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .track-order-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Track Your Order</h1>
+  </header>
+
+  <main class="track-order-main">
+    <div class="track-order-container">
+      <div class="track-order-content">
+
+        <div class="track-order-form" role="region" aria-labelledby="formTitle">
+          <h2 id="formTitle" style="color: var(--main_color); text-align: center; margin-bottom: 30px;">
+            Enter Your Order Details
+          </h2>
+
+          <form id="trackingForm" novalidate>
+            <div id="orderNumberGroup">
+              <label for="orderNumber" class="visually-hidden">Order Number</label>
+              <input
+                type="text"
+                id="orderNumber"
+                name="orderNumber"
+                placeholder="Order Number"
+                autocomplete="off"
+                aria-describedby="orderNumberError"
+                required
+                pattern="[a-zA-Z0-9]+"
+                title="Order number must be alphanumeric"
+              />
+              <div id="orderNumberError" class="error-message" aria-live="assertive"></div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <label for="email" class="visually-hidden">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                autocomplete="email"
+                aria-describedby="emailError"
+                required
+              />
+              <div id="emailError" class="error-message" aria-live="assertive"></div>
+            </div>
+
+            <button
+              id="trackButton"
+              type="submit"
+              style="margin-top: 1.5rem;"
+              aria-live="polite"
+            >
+              <i class="fas fa-spinner spinner"></i> Track Your Order
+            </button>
+          </form>
+        </div>
+
+        <section id="trackingResults" aria-live="polite" aria-atomic="true"></section>
+
+        <div class="help-section">
+          <a href="/memoire/contact.html" class="help-btn" role="button" aria-label="Contact Customer Service for Help">
+            Need Help? Contact Us
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+  // Helper function to show error messages
+  function showError(input, message) {
+    const errorDiv = document.getElementById(input.id + "Error");
+    errorDiv.textContent = message;
+    errorDiv.style.display = "block";
+    input.setAttribute("aria-invalid", "true");
+  }
+
+  function clearError(input) {
+    const errorDiv = document.getElementById(input.id + "Error");
+    errorDiv.textContent = "";
+    errorDiv.style.display = "none";
+    input.removeAttribute("aria-invalid");
+  }
+
+  document.getElementById('trackingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const orderInput = document.getElementById('orderNumber');
+    const emailInput = document.getElementById('email');
+    const trackButton = document.getElementById('trackButton');
+    let valid = true;
+
+    // Clear previous errors
+    clearError(orderInput);
+    clearError(emailInput);
+
+    // Basic validation
+    if (!orderInput.value.trim()) {
+      showError(orderInput, "Order number is required.");
+      valid = false;
+    } else if (!/^[a-zA-Z0-9]+$/.test(orderInput.value.trim())) {
+      showError(orderInput, "Order number must be alphanumeric.");
+      valid = false;
+    }
+
+    if (!emailInput.value.trim()) {
+      showError(emailInput, "Email address is required.");
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+      showError(emailInput, "Please enter a valid email address.");
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Disable button and add loading class
+    trackButton.disabled = true;
+    trackButton.classList.add('active');
+
+    // Prepare form data
+    const formData = new FormData();
+    formData.append('searchType', 'trackingNumber');
+    formData.append('searchValue', orderInput.value.trim());
+    formData.append('email', emailInput.value.trim());
+
+    // Send POST request to your PHP backend
+    fetch('/memoire/php/track_order.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (!data.success) {
+        alert(data.message || 'Order not found.');
+        document.getElementById('trackingResults').style.display = "none";
+      } else {
+        displayOrderData(data.order);
+      }
+    })
+    .catch(() => {
+      alert('An error occurred. Please try again later.');
+      document.getElementById('trackingResults').style.display = "none";
+    })
+    .finally(() => {
+      trackButton.disabled = false;
+      trackButton.classList.remove('active');
+    });
+  });
+
+  function displayOrderData(data) {
+    const results = document.getElementById('trackingResults');
+    results.style.display = "block";
+
+    // Build steps HTML
+    let stepsHTML = data.steps.map((step, index) => `
+      <div class="tracking-step${index === data.steps.length - 1 ? " step-active" : ""}">
+        <div class="step-icon" aria-hidden="true"><i class="fas fa-check"></i></div>
+        <div class="step-details">
+          <div><strong>${step.status}</strong></div>
+          <div class="step-date">${step.date}</div>
+          <div>${step.description}</div>
+        </div>
+      </div>
+    `).join("");
+
+    // Build items table rows
+    let itemsRows = data.items.map(item => `
+      <tr>
+        <td>${item.name}</td>
+        <td>${item.quantity}</td>
+        <td>$${item.price.toFixed(2)}</td>
+        <td>$${(item.price * item.quantity).toFixed(2)}</td>
+      </tr>
+    `).join("");
+
+    // Calculate total
+    const total = data.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    results.innerHTML = `
+      <div class="tracking-header" role="region" aria-label="Order Summary">
+        <div><strong>Order Number:</strong> ${data.orderNumber}</div>
+        <div><strong>Status:</strong> <span class="tracking-status">${data.status}</span></div>
+        <div><strong>Estimated Delivery:</strong> ${data.estimatedDelivery}</div>
+      </div>
+
+      <div class="tracking-steps" aria-label="Tracking Steps">
+        ${stepsHTML}
+      </div>
+
+      <div class="order-details" aria-label="Order Items">
+        <h3>Order Items</h3>
+        <table class="order-items" role="table">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${itemsRows}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
+              <td><strong>$${total.toFixed(2)}</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    `;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/style.css">
+  <style>
+    /* Login Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+      --light_bg: #fff9fb;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .login-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .login-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .login-intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .login-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .login-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+    }
+    
+    .login-form input,
+    .login-form select {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 2px solid #ffe6f2;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: var(--light_bg);
+      transition: all 0.3s ease;
+    }
+    
+    .login-form input:focus,
+    .login-form select:focus {
+      border-color: var(--main_color);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+    }
+    
+    .login-form select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff69b4'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 15px;
+    }
+    
+    .login-form button {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .login-form button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .login-links {
+      margin-top: 25px;
+      text-align: center;
+    }
+    
+    .login-links p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+    }
+    
+    .login-links a {
+      color: var(--main_color);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .login-links a:hover {
+      text-decoration: underline;
+    }
+    
+    .social-login {
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    .social-login p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      position: relative;
+    }
+    
+    .social-login p::before,
+    .social-login p::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 30%;
+      height: 1px;
+      background: #eee;
+    }
+    
+    .social-login p::before {
+      left: 0;
+    }
+    
+    .social-login p::after {
+      right: 0;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background-color: var(--light_bg);
+      border-radius: 50%;
+      color: var(--main_color);
+      font-size: 18px;
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--main_color);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .login-main {
+        padding: 40px 0;
+      }
+      
+      .login-container {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .login-intro h2 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .login-intro h2 {
+        font-size: 1.6rem;
+      }
+      
+      .social-login p::before,
+      .social-login p::after {
+        width: 25%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Noulika Store</h1>
+  </header>
+
+  <main class="login-main">
+    <div class="login-container">
+      <div class="login-intro">
+        <h2>Login to Your Account</h2>
+        <p>Access your personalized dashboard to manage orders, wishlists, and more</p>
+      </div>
+      
+      <form class="login-form" action="/memoire/php/login.php" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <select name="role" required>
+          <option value="">Select Your Role</option>
+          <option value="customer">Customer</option>
+          <option value="seller">Seller</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Login</button>
+      </form>
+      
+      <div class="login-links">
+        <p>Don't have an account? <a href="/memoire/html/register.html">Register here</a></p>
+        <p><a href="/memoire/html/forgot-password.html">Forgot your password?</a></p>
+      </div>
+      
+      
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

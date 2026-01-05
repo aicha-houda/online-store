@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Issues Support | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* Order Issues Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .order-issues-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .order-issues-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .order-issues-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .order-issues-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .order-issues-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .order-issues-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .common-issues {
+      margin-bottom: 40px;
+    }
+    
+    .issue-card {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      border: 1px solid #ffe6f2;
+    }
+    
+    .issue-card h3 {
+      color: var(--main_color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .issue-card p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .solution-steps {
+      margin-left: 20px;
+    }
+    
+    .solution-steps li {
+      margin-bottom: 10px;
+      color: var(--p_color);
+    }
+    
+    .track-order {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+    }
+    
+    .track-order h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .track-order p {
+      color: var(--p_color);
+      margin-bottom: 25px;
+    }
+    
+    .track-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .track-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .contact-support {
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    .contact-support p {
+      color: var(--p_color);
+      margin-bottom: 20px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .order-issues-main {
+        padding: 40px 0;
+      }
+      
+      .order-issues-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .order-issues-intro h2 {
+        font-size: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .order-issues-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .order-issues-intro h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Order Issues Support</h1>
+  </header>
+
+  <main class="order-issues-main">
+    <div class="order-issues-container">
+      <div class="order-issues-content">
+        <div class="order-issues-intro">
+          <h2>Having trouble with your order?</h2>
+          <p>We're here to help you resolve any issues with your Noulika Store purchase. Below you'll find solutions to common order problems.</p>
+        </div>
+        
+        <div class="common-issues">
+          <div class="issue-card">
+            <h3>Order Not Received</h3>
+            <p>If your order hasn't arrived within the expected delivery time:</p>
+            <ol class="solution-steps">
+              <li>Check your shipping confirmation email for tracking information</li>
+              <li>Track your package using the link provided</li>
+              <li>If the tracking shows delivered but you haven't received it, check with neighbors or your building management</li>
+              <li>Contact our support team if the issue persists</li>
+            </ol>
+          </div>
+          
+          <div class="issue-card">
+            <h3>Wrong Item Received</h3>
+            <p>If you received an item different from what you ordered:</p>
+            <ol class="solution-steps">
+              <li>Keep all original packaging and tags</li>
+              <li>Take photos of the incorrect item received</li>
+              <li>Contact our support team with your order number and photos</li>
+              <li>We'll arrange for return shipping and send the correct item</li>
+            </ol>
+          </div>
+          
+          <div class="issue-card">
+            <h3>Damaged or Defective Item</h3>
+            <p>If your item arrived damaged or isn't working properly:</p>
+            <ol class="solution-steps">
+              <li>Take clear photos of the damage or defect</li>
+              <li>Keep all original packaging</li>
+              <li>Contact our support team within 14 days of delivery</li>
+              <li>We'll provide a return label and replacement options</li>
+            </ol>
+          </div>
+          
+          <div class="issue-card">
+            <h3>Order Cancellation</h3>
+            <p>Need to cancel your order? Here's what to do:</p>
+            <ol class="solution-steps">
+              <li>Check your order status - cancellations are only possible before shipping</li>
+              <li>If your order hasn't shipped, contact us immediately</li>
+              <li>For shipped orders, you can refuse delivery or return the item</li>
+              <li>Refunds are processed within 3-5 business days after return receipt</li>
+            </ol>
+          </div>
+        </div>
+        
+        <div class="track-order">
+          <h3>Track Your Order</h3>
+          <p>Enter your order number and email to check the status of your shipment</p>
+          <a href="/memoire/html/track_order.html" class="track-btn">
+            <i class="fas fa-truck"></i> Track My Order
+          </a>
+        </div>
+        
+        <div class="contact-support">
+          <p>Can't find a solution to your order issue?</p>
+          <a href="/memoire/html/contact.html" class="track-btn">
+            <i class="fas fa-headset"></i> Contact Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

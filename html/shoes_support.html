@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shoes Support | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* Shoes Support Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .shoes-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .shoes-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .shoes-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .shoes-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .shoes-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .shoes-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .shoes-issues {
+      margin-bottom: 40px;
+    }
+    
+    .faq-item {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .faq-item h3 {
+      color: var(--main_color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .faq-item h3 i {
+      margin-right: 10px;
+    }
+    
+    .faq-item p {
+      color: var(--p_color);
+      line-height: 1.6;
+    }
+    
+    .sizing-section {
+      margin-bottom: 40px;
+    }
+    
+    .sizing-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .sizing-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .sizing-method {
+      background: var(--white_color);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      border: 1px solid #ffe6f2;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .sizing-method:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .sizing-method i {
+      font-size: 2.5rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .sizing-method h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    
+    .sizing-method p {
+      color: var(--p_color);
+      line-height: 1.6;
+    }
+    
+    .size-chart {
+      width: 100%;
+      overflow-x: auto;
+      margin: 30px 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ffe6f2;
+    }
+    
+    th {
+      background-color: #fff9fb;
+      color: var(--main_color);
+      font-weight: bold;
+    }
+    
+    tr:hover {
+      background-color: #fff9fb;
+    }
+    
+    .care-section {
+      margin-bottom: 40px;
+    }
+    
+    .care-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .care-tips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .care-tip {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      border: 1px solid #ffe6f2;
+    }
+    
+    .care-tip h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .care-tip h4 i {
+      margin-right: 10px;
+    }
+    
+    .contact-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .contact-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .contact-section p {
+      color: var(--p_color);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .contact-method {
+      background: var(--white_color);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+      min-width: 250px;
+    }
+    
+    .contact-method:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .contact-method i {
+      font-size: 2rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .contact-method h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .contact-method p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .support-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .support-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .shoes-main {
+        padding: 40px 0;
+      }
+      
+      .shoes-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .shoes-intro h2 {
+        font-size: 1.8rem;
+      }
+      
+      .contact-method {
+        min-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .shoes-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .shoes-intro h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shoes Support</h1>
+  </header>
+
+  <main class="shoes-main">
+    <div class="shoes-container">
+      <div class="shoes-content">
+        <div class="shoes-intro">
+          <h2>Footwear Care & Support</h2>
+          <p>Find answers to your shoe questions, sizing help, and care instructions for your Noulika footwear.</p>
+        </div>
+        
+        <section class="shoes-issues">
+          <h3><i class="fas fa-question-circle"></i> Common Shoes Questions</h3>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-ruler"></i> How do I find my correct shoe size?</h3>
+            <p>We recommend measuring your feet at the end of the day when they're at their largest. Use our printable size guide or measure in centimeters from heel to longest toe.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-exchange-alt"></i> Can I exchange for a different size?</h3>
+            <p>Yes! We offer free size exchanges within 30 days of delivery. Shoes must be unworn with original packaging. Visit our <a href="/memoire/html/returns.html">returns page</a> to initiate an exchange.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-football-ball"></i> Why do my shoes feel tight?</h3>
+            <p>Leather shoes often need 3-5 wears to break in. If they're still uncomfortable after this period, you may need a wider width or half size up.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-barcode"></i> How can I tell if my shoes are authentic?</h3>
+            <p>Genuine Noulika shoes have: a unique serial number inside, consistent stitching, and our logo embossed on the sole. Verify using our <a href="/memoire/html/authenticity.html">authenticity checker</a>.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-box-open"></i> I received damaged/defective shoes</h3>
+            <p>We're sorry to hear that! Please contact us within 14 days with photos of the issue. We'll send replacements or issue a refund for manufacturing defects.</p>
+          </div>
+        </section>
+        
+        <section class="sizing-section">
+          <h3><i class="fas fa-shoe-prints"></i> Shoe Sizing Guide</h3>
+          
+          <div class="sizing-methods">
+            <div class="sizing-method">
+              <i class="fas fa-ruler"></i>
+              <h4>Measure Your Feet</h4>
+              <p>Stand on paper, mark heel and longest toe, then measure in cm. Compare to our size chart.</p>
+            </div>
+            
+            <div class="sizing-method">
+              <i class="fas fa-socks"></i>
+              <h4>Consider Socks</h4>
+              <p>Measure with the socks you'll wear. Leave about 1cm space at the toe for comfort.</p>
+            </div>
+            
+            <div class="sizing-method">
+              <i class="fas fa-arrows-alt-h"></i>
+              <h4>Width Matters</h4>
+              <p>We offer standard (B) and wide (D) widths. Measure the widest part of your foot.</p>
+            </div>
+          </div>
+          
+          <div class="size-chart">
+            <h4><i class="fas fa-table"></i> Women's Shoe Size Conversion</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>US</th>
+                  <th>EU</th>
+                  <th>UK</th>
+                  <th>Foot Length (cm)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>5</td>
+                  <td>35</td>
+                  <td>3</td>
+                  <td>22.1</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>36</td>
+                  <td>4</td>
+                  <td>22.9</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>37</td>
+                  <td>5</td>
+                  <td>23.8</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>38</td>
+                  <td>6</td>
+                  <td>24.6</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>39</td>
+                  <td>7</td>
+                  <td>25.4</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>40</td>
+                  <td>8</td>
+                  <td>26.2</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        
+        <section class="care-section">
+          <h3><i class="fas fa-hands-helping"></i> Shoe Care Guide</h3>
+          
+          <div class="care-tips">
+            <div class="care-tip">
+              <h4><i class="fas fa-snowflake"></i> Leather Shoes</h4>
+              <p>Use cedar shoe trees to maintain shape. Clean with damp cloth, then apply conditioner. Waterproof before first wear.</p>
+            </div>
+            
+            <div class="care-tip">
+              <h4><i class="fas fa-tshirt"></i> Fabric Sneakers</h4>
+              <p>Spot clean with mild soap. Stuff with paper when drying. Use protective spray for stains.</p>
+            </div>
+            
+            <div class="care-tip">
+              <h4><i class="fas fa-umbrella"></i> Weather Protection</h4>
+              <p>Apply waterproofing treatments seasonally. Avoid wearing suede in rain. Dry wet shoes naturally.</p>
+            </div>
+            
+            <div class="care-tip">
+              <h4><i class="fas fa-sync-alt"></i> Rotation</h4>
+              <p>Rotate shoes every other day to allow them to air out and maintain their shape longer.</p>
+            </div>
+          </div>
+        </section>
+        
+        <div class="contact-section">
+          <h3>Need More Shoes Help?</h3>
+          <p>Our footwear specialists are ready to assist you with any questions or issues.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <h4>Email Support</h4>
+              <p>shoes@Noulika.com</p>
+              <p>Typically responds within 24 hours</p>
+              <a href="mailto:shoes@Noulika.com" class="support-btn">Email Us</a>
+            </div>
+            
+            <div class="contact-method">
+              <i class="fas fa-phone-alt"></i>
+              <h4>Call Support</h4>
+              <p>1-800-NOULIKA</p>
+              <p>Monday-Friday, 9am-5pm EST</p>
+              <a href="tel:18006685442" class="support-btn">Call Now</a>
+            </div>
+            
+             <div class="contact-method">
+              <i class="fas fa-comments"></i>
+              <h4>Contact Form</h4>
+              <p>Fill out our detailed contact form</p>
+              <p>We'll respond within 24 hours</p>
+              <a href="/memoire/html/contact.html" class="support-btn">Go to Form</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

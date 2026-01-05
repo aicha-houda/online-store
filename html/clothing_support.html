@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing Support | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* Clothing Support Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .clothing-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .clothing-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .clothing-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .clothing-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .clothing-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .clothing-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .clothing-issues {
+      margin-bottom: 40px;
+    }
+    
+    .faq-item {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .faq-item h3 {
+      color: var(--main_color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .faq-item h3 i {
+      margin-right: 10px;
+    }
+    
+    .faq-item p {
+      color: var(--p_color);
+      line-height: 1.6;
+    }
+    
+    .care-section {
+      margin-bottom: 40px;
+    }
+    
+    .care-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .care-card {
+      background: var(--white_color);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      border: 1px solid #ffe6f2;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .care-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .care-card i {
+      font-size: 2.5rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .care-card h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+    
+    .care-card ul {
+      color: var(--p_color);
+      text-align: left;
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+    
+    .care-card li {
+      margin-bottom: 8px;
+    }
+    
+    .sizing-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .sizing-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .sizing-section p {
+      color: var(--p_color);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    
+    .sizing-link {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin: 0 auto;
+    }
+    
+    .sizing-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .contact-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .contact-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .contact-section p {
+      color: var(--p_color);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .contact-method {
+      background: var(--white_color);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+      min-width: 250px;
+    }
+    
+    .contact-method:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .contact-method i {
+      font-size: 2rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .contact-method h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .contact-method p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .support-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .support-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .clothing-main {
+        padding: 40px 0;
+      }
+      
+      .clothing-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .clothing-intro h2 {
+        font-size: 1.8rem;
+      }
+      
+      .care-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-method {
+        min-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .clothing-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .clothing-intro h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Clothing Support</h1>
+  </header>
+
+  <main class="clothing-main">
+    <div class="clothing-container">
+      <div class="clothing-content">
+        <div class="clothing-intro">
+          <h2>Clothing Care & Support</h2>
+          <p>Find answers to your clothing questions, care instructions, or contact our clothing specialists for help with your Noulika apparel.</p>
+        </div>
+        
+        <section class="clothing-issues">
+          <h3><i class="fas fa-question-circle"></i> Common Clothing Questions</h3>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-ruler"></i> How do I find my correct size?</h3>
+            <p>We provide detailed sizing charts for each clothing item. Measure yourself with a soft tape measure and compare to our size guides. When in doubt between sizes, we recommend sizing up for comfort.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-tshirt"></i> Why does my item look different than the photo?</h3>
+            <p>Colors may vary slightly due to monitor settings. Fabric texture and drape may appear different when worn versus on a model. Check the product description for exact fabric content and measurements.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-exchange-alt"></i> Can I exchange for a different size?</h3>
+            <p>Yes! We offer free size exchanges within 30 days of delivery. Items must be unworn, unwashed, with tags attached. Visit our <a href="/memoire/html/returns.html">returns page</a> to initiate an exchange.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-barcode"></i> How can I tell if my item is authentic?</h3>
+            <p>All Noulika clothing comes with an authenticity tag and holographic security sticker. You can verify your item using the unique code on our <a href="/memoire/html/authenticity.html">authenticity checker</a>.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-box-open"></i> I received a damaged/defective clothing item</h3>
+            <p>We're sorry to hear that! Please contact us within 14 days of receipt with photos of the issue. We'll send a replacement or issue a refund for any manufacturing defects.</p>
+          </div>
+        </section>
+        
+        <section class="care-section">
+          <h3><i class="fas fa-hands-helping"></i> Clothing Care Guides</h3>
+          <p>Proper care will keep your Noulika clothing looking its best. Follow these guidelines based on fabric type:</p>
+          
+          <div class="care-grid">
+            <div class="care-card">
+              <i class="fas fa-tshirt"></i>
+              <h4>Cotton & Linen</h4>
+              <ul>
+                <li>Machine wash cold, gentle cycle</li>
+                <li>Use mild detergent</li>
+                <li>Tumble dry low or hang to dry</li>
+                <li>Iron on medium heat if needed</li>
+                <li>May shrink slightly first wash</li>
+              </ul>
+            </div>
+            
+            <div class="care-card">
+              <i class="fas fa-tshirt"></i>
+              <h4>Silk & Delicates</h4>
+              <ul>
+                <li>Hand wash in cold water</li>
+                <li>Use gentle soap made for delicates</li>
+                <li>Lay flat to dry, never wring</li>
+                <li>Iron on low with cloth barrier</li>
+                <li>Dry clean recommended for some items</li>
+              </ul>
+            </div>
+            
+            <div class="care-card">
+              <i class="fas fa-tshirt"></i>
+              <h4>Synthetics & Blends</h4>
+              <ul>
+                <li>Machine wash cold</li>
+                <li>Turn inside out before washing</li>
+                <li>Use mesh laundry bag for protection</li>
+                <li>Line dry or tumble dry low</li>
+                <li>Avoid high heat to prevent pilling</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        
+        <section class="sizing-section">
+          <h3><i class="fas fa-ruler-combined"></i> Need Sizing Help?</h3>
+          <p>Our detailed sizing guides help you find the perfect fit for every clothing item we offer.</p>
+          <a href="/memoire/html/sizing_guide.html" class="sizing-link">View Sizing Guides</a>
+        </section>
+        
+        <div class="contact-section">
+          <h3>Need More Clothing Help?</h3>
+          <p>Our clothing specialists are ready to assist you with any questions or issues.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <h4>Email Support</h4>
+              <p>clothing@Noulika.com</p>
+              <p>Typically responds within 24 hours</p>
+              <a href="mailto:clothing@Noulika.com" class="support-btn">Email Us</a>
+            </div>
+            
+            <div class="contact-method">
+              <i class="fas fa-phone-alt"></i>
+              <h4>Call Support</h4>
+              <p>1-800-NOULIKA</p>
+              <p>Monday-Friday, 9am-5pm EST</p>
+              <a href="tel:18006685442" class="support-btn">Call Now</a>
+            </div>
+            
+             <div class="contact-method">
+              <i class="fas fa-comments"></i>
+              <h4>Contact Form</h4>
+              <p>Fill out our detailed contact form</p>
+              <p>We'll respond within 24 hours</p>
+              <a href="/memoire/html/contact.html" class="support-btn">Go to Form</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

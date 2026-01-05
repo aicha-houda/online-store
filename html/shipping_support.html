@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Support | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* Shipping Support Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .shipping-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .shipping-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .shipping-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .shipping-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .shipping-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .shipping-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .shipping-issues {
+      margin-bottom: 40px;
+    }
+    
+    .faq-item {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .faq-item h3 {
+      color: var(--main_color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .faq-item h3 i {
+      margin-right: 10px;
+    }
+    
+    .faq-item p {
+      color: var(--p_color);
+      line-height: 1.6;
+    }
+    
+    .shipping-methods-section {
+      margin-bottom: 40px;
+    }
+    
+    .shipping-methods-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .shipping-methods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .shipping-method {
+      background: var(--white_color);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      border: 1px solid #ffe6f2;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .shipping-method:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .shipping-method i {
+      font-size: 2.5rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .shipping-method h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+    
+    .shipping-method p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .tracking-info {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 40px 0;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+    }
+    
+    .tracking-info h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .tracking-info p {
+      color: var(--p_color);
+      margin-bottom: 25px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .tracking-link {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .tracking-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .contact-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .contact-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .contact-section p {
+      color: var(--p_color);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    
+    .contact-methods {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .contact-method {
+      background: var(--white_color);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+      min-width: 250px;
+    }
+    
+    .contact-method:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .contact-method i {
+      font-size: 2rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .contact-method h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .contact-method p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    
+    .support-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .support-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .shipping-main {
+        padding: 40px 0;
+      }
+      
+      .shipping-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .shipping-intro h2 {
+        font-size: 1.8rem;
+      }
+      
+      .shipping-methods-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-method {
+        min-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .shipping-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .shipping-intro h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Shipping Support</h1>
+  </header>
+
+  <main class="shipping-main">
+    <div class="shipping-container">
+      <div class="shipping-content">
+        <div class="shipping-intro">
+          <h2>Shipping Information & Support</h2>
+          <p>Find answers to your shipping questions or contact our shipping support team for assistance.</p>
+        </div>
+        
+        <section class="shipping-issues">
+          <h3><i class="fas fa-question-circle"></i> Common Shipping Questions</h3>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-truck"></i> How long does shipping take?</h3>
+            <p>Standard shipping typically takes 3-5 business days after processing. Express shipping options are available at checkout for faster delivery (1-2 business days). Processing time is usually 1-2 business days.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-map-marker-alt"></i> Do you ship internationally?</h3>
+            <p>Yes! We ship worldwide. International delivery times vary by destination but typically range from 7-14 business days. Additional customs fees may apply depending on your country's regulations.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-box-open"></i> What should I do if my package is damaged?</h3>
+            <p>Please contact us immediately with photos of the damaged package and items. We'll work quickly to resolve the issue, either by sending replacements or issuing a refund.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-calendar-times"></i> My package is late - what can I do?</h3>
+            <p>First, check your tracking information using our <a href="/memoire/html/track_order.html">Order Tracking</a> page. If your package is significantly delayed beyond the estimated delivery date, please contact us with your order number.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3><i class="fas fa-exchange-alt"></i> What's your return shipping policy?</h3>
+            <p>We offer free returns within 30 days of delivery for domestic orders. International returns are subject to shipping costs. Please initiate returns through your account or contact us for assistance.</p>
+          </div>
+        </section>
+        
+        <section class="tracking-info">
+          <h3><i class="fas fa-search-location"></i> Need to track your order?</h3>
+          <p>Visit our dedicated order tracking page to check the status of your shipment in real-time.</p>
+          <a href="/memoire/html/track_order.html" class="tracking-link">Track Your Order</a>
+        </section>
+        
+        <section class="shipping-methods-section">
+          <h3>Our Shipping Methods</h3>
+          <p>We offer several shipping options to meet your needs</p>
+          
+          <div class="shipping-methods-grid">
+            <div class="shipping-method">
+              <i class="fas fa-truck"></i>
+              <h4>Standard Shipping</h4>
+              <p>3-5 business days after processing</p>
+              <p>Free on orders over $50</p>
+            </div>
+            
+            <div class="shipping-method">
+              <i class="fas fa-bolt"></i>
+              <h4>Express Shipping</h4>
+              <p>1-2 business days after processing</p>
+              <p>Additional charge applies</p>
+            </div>
+            
+            <div class="shipping-method">
+              <i class="fas fa-globe"></i>
+              <h4>International Shipping</h4>
+              <p>7-14 business days to most countries</p>
+              <p>Customs fees may apply</p>
+            </div>
+          </div>
+        </section>
+        
+        <div class="contact-section">
+          <h3>Need More Shipping Help?</h3>
+          <p>Our shipping support team is ready to assist you with any questions or issues.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <h4>Email Support</h4>
+              <p>shipping@Noulika.com</p>
+              <p>Typically responds within 24 hours</p>
+              <a href="mailto:shipping@Noulika.com" class="support-btn">Email Us</a>
+            </div>
+            
+            <div class="contact-method">
+              <i class="fas fa-phone-alt"></i>
+              <h4>Call Support</h4>
+              <p>1-800-NOULIKA</p>
+              <p>Monday-Friday, 9am-5pm EST</p>
+              <a href="tel:18006685442" class="support-btn">Call Now</a>
+            </div>
+            
+            <div class="contact-method">
+              <i class="fas fa-comments"></i>
+              <h4>Live Chat</h4>
+              <p>Available 24/7</p>
+              <p>Instant shipping assistance</p>
+              <a href="#" class="support-btn">Start Chat</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Noulika Store - Fashion & Lifestyle</title>
+  <meta name="description" content="Discover the latest fashion trends, beauty tips, and style inspiration from Noulika Store">
+  <link rel="icon" href="/memoire/image/logo.svg">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  
+  <style>
+    /* Blog Page Specific Styles - Matching Support Page */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+      --light_bg: #fff9fb;
+      --border_color: #ffe6f2;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .blog-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .blog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .blog-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .blog-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .blog-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .blog-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .blog-categories {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .category-btn {
+      background: var(--light_bg);
+      color: var(--main_color);
+      padding: 10px 20px;
+      border: 1px solid var(--border_color);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .category-btn:hover, .category-btn.active {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .blog-card {
+      background: var(--light_bg);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border_color);
+    }
+    
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .card-image {
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .blog-card:hover .card-image img {
+      transform: scale(1.05);
+    }
+    
+    .card-category {
+      display: inline-block;
+      background: var(--white_color);
+      color: var(--main_color);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    
+    .card-title {
+      color: var(--main_color);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+    
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--p_color);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+    
+    .card-date, .card-comments {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .card-excerpt {
+      color: var(--p_color);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .read-more {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .read-more:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .newsletter-section {
+      background: var(--light_bg);
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid var(--border_color);
+      text-align: center;
+    }
+    
+    .newsletter-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .newsletter-section p {
+      color: var(--p_color);
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid var(--border_color);
+      border-radius: 8px 0 0 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+    
+    .newsletter-form button {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 0 20px;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .newsletter-form button:hover {
+      background: linear-gradient(135deg, #ffb6c1, var(--main_color));
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Footer Icon Styles */
+    .icons_footer {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .icons_footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--main_color);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .icons_footer a:hover {
+      background-color: #ffb6c1;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .blog-main {
+        padding: 40px 0;
+      }
+      
+      .blog-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .blog-intro h2 {
+        font-size: 1.8rem;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+      
+      .newsletter-form input {
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      
+      .newsletter-form button {
+        border-radius: 8px;
+        padding: 12px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .blog-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .blog-intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .icons_footer {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Noulika Journal</h1>
+  </header>
+
+  <main class="blog-main">
+    <div class="blog-container">
+      <div class="blog-content">
+        <div class="blog-intro">
+          <h2>Fashion Tips & Style Inspiration</h2>
+          <p>Discover the latest trends, beauty secrets, and expert advice from the Noulika Store team.</p>
+        </div>
+        
+        <div class="blog-categories">
+          <button class="category-btn active" data-category="all">All Posts</button>
+          <button class="category-btn" data-category="fashion">Fashion</button>
+          <button class="category-btn" data-category="beauty">Beauty</button>
+          <button class="category-btn" data-category="lifestyle">Lifestyle</button>
+        </div>
+        
+        <div class="blog-grid">
+          <!-- Blog Post 1 -->
+          <article class="blog-card" data-category="fashion">
+            <div class="card-image">
+  <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Spring Fashion Trends" loading="lazy">
+</div>
+            <span class="card-category">Fashion</span>
+            <h3 class="card-title">Spring 2023 Fashion Trends You Need to Know</h3>
+            <div class="card-meta">
+              <span class="card-date"><i class="far fa-calendar-alt"></i> May 15, 2023</span>
+              <span class="card-comments"><i class="far fa-comment"></i> 24</span>
+            </div>
+            <p class="card-excerpt">This season is all about bold colors, oversized silhouettes, and sustainable fabrics. We've rounded up the top 10 trends you'll be seeing everywhere...</p>
+            <a href="/memoire/html/spring-2023-trends.html" class="read-more">Read More</a>
+          </article>
+          
+          <!-- Blog Post 2 -->
+          <article class="blog-card" data-category="beauty">
+            <div class="card-image">
+  <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Summer Makeup Tips" loading="lazy">
+</div>
+            <span class="card-category">Beauty</span>
+            <h3 class="card-title">5 Minute Makeup Routine for Busy Mornings</h3>
+            <div class="card-meta">
+              <span class="card-date"><i class="far fa-calendar-alt"></i> May 10, 2023</span>
+              <span class="card-comments"><i class="far fa-comment"></i> 18</span>
+            </div>
+            <p class="card-excerpt">Running late but still want to look put together? Our beauty editor shares her foolproof 5-minute routine using just 5 products...</p>
+            <a href="/memoire/html/5-minute-makeup.html" class="read-more">Read More</a>
+          </article>
+          
+          <!-- Blog Post 3 -->
+          <article class="blog-card" data-category="lifestyle">
+            <div class="card-image">
+  <img src="https://images.unsplash.com/photo-1556909112-44e5eab0a8a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Capsule Wardrobe" loading="lazy">
+</div>
+            <span class="card-category">Lifestyle</span>
+            <h3 class="card-title">How to Build a Capsule Wardrobe That Works</h3>
+            <div class="card-meta">
+              <span class="card-date"><i class="far fa-calendar-alt"></i> May 5, 2023</span>
+              <span class="card-comments"><i class="far fa-comment"></i> 32</span>
+            </div>
+            <p class="card-excerpt">A capsule wardrobe doesn't have to be boring! Learn how to create a versatile collection of 30 pieces that can be mixed and matched...</p>
+            <a href="/memoire/html/capsule-wardrobe.html" class="read-more">Read More</a>
+          </article>
+        </div>
+        
+        <div class="newsletter-section">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest fashion tips, exclusive offers, and style inspiration delivered straight to your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Blog functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const blogPosts = document.querySelectorAll('.blog-card');
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      
+      // Filter by category
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          const category = btn.dataset.category;
+          
+          // Show/hide posts based on category
+          blogPosts.forEach(post => {
+            if (category === 'all' || post.dataset.category === category) {
+              post.style.display = 'block';
+            } else {
+              post.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Newsletter form submission
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const emailInput = this.querySelector('input[type="email"]');
+          const email = emailInput.value;
+          
+          // Simple validation
+          if (email.includes('@') && email.includes('.')) {
+            alert('Thank you for subscribing to our newsletter!');
+            emailInput.value = '';
+          } else {
+            alert('Please enter a valid email address.');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

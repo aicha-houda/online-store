@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center | Noulika Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="/memoire/css/nav_links.css">
+  <style>
+    /* Help Center Page Specific Styles */
+    :root {
+      --main_color: pink;
+      --white_color: #ffffff;
+      --p_color: #666666;
+      --black_color: #000000;
+    }
+    
+    header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    
+    .help-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .help-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .help-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .help-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .help-intro h2 {
+      color: var(--main_color);
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    
+    .help-intro p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .help-card {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+    }
+    
+    .help-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .help-card i {
+      font-size: 2.5rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .help-card h3 {
+      color: var(--main_color);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .help-card p {
+      color: var(--p_color);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    
+    .help-btn {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .help-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    .faq-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .faq-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .faq-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ffe6f2;
+      padding-bottom: 20px;
+    }
+    
+    .faq-question {
+      color: var(--main_color);
+      font-weight: bold;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .faq-answer {
+      color: var(--p_color);
+      line-height: 1.6;
+      display: none;
+    }
+    
+    .faq-answer.show {
+      display: block;
+    }
+    
+    .contact-section {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 40px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .contact-section h3 {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .contact-section p {
+      color: var(--p_color);
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+    
+    .contact-methods {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 20px;
+    }
+    
+    .contact-method {
+      background: var(--white_color);
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(255, 182, 193, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid #ffe6f2;
+      text-align: center;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .contact-method:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+    }
+    
+    .contact-method i {
+      font-size: 2rem;
+      color: var(--main_color);
+      margin-bottom: 15px;
+    }
+    
+    .contact-method h4 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .contact-method p {
+      color: var(--p_color);
+      margin-bottom: 15px;
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+    
+    .home-button-container {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    
+    .btn-home {
+      background: linear-gradient(135deg, var(--main_color), #ffb6c1);
+      color: var(--white_color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+    
+    /* Footer Icon Styles */
+    .icons_footer {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .icons_footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--main_color);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .icons_footer a:hover {
+      background-color: #ffb6c1;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .help-main {
+        padding: 40px 0;
+      }
+      
+      .help-content {
+        padding: 30px;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .help-intro h2 {
+        font-size: 1.8rem;
+      }
+      
+      .help-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-methods {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .contact-method {
+        width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .help-content {
+        padding: 25px 20px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .help-intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .icons_footer {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Help Center</h1>
+  </header>
+
+  <main class="help-main">
+    <div class="help-container">
+      <div class="help-content">
+        <div class="help-intro">
+          <h2>How Can We Help You Today?</h2>
+          <p>Find answers to common questions or get in touch with our support team for personalized assistance.</p>
+        </div>
+        
+        <div class="help-grid">
+          <div class="help-card">
+            <i class="fas fa-shopping-bag"></i>
+            <h3>Order Help</h3>
+            <p>Track your order, check status, or manage your purchases</p>
+            <a href="/memoire/html/order_issue.html" class="help-btn">Order Support</a>
+          </div>
+          
+          <div class="help-card">
+            <i class="fas fa-undo-alt"></i>
+            <h3>Returns & Exchanges</h3>
+            <p>Start a return, exchange items, or check refund status</p>
+            <a href="/memoire/html/returns.html" class="help-btn">Return Info</a>
+          </div>
+          
+          <div class="help-card">
+            <i class="fas fa-credit-card"></i>
+            <h3>Payments</h3>
+            <p>Payment methods, declined payments, or billing questions</p>
+            <a href="/memoire/html/payment_support.html" class="help-btn">Payment Help</a>
+          </div>
+          
+          <div class="help-card">
+            <i class="fas fa-truck"></i>
+            <h3>Shipping</h3>
+            <p>Delivery options, tracking, or shipping costs</p>
+            <a href="/memoire/html/shipping_support.html" class="help-btn">Shipping Info</a>
+          </div>
+          
+          <div class="help-card">
+            <i class="fas fa-user-circle"></i>
+            <h3>Account Help</h3>
+            <p>Password reset, account access, or profile updates</p>
+            <a href="/memoire/html/account_support.html" class="help-btn">Account Support</a>
+          </div>
+          
+          <div class="help-card">
+            <i class="fas fa-gift"></i>
+            <h3>Promotions</h3>
+            <p>Discount codes, special offers, or loyalty program</p>
+            <a href="/memoire/html/promotions.html" class="help-btn">Promo Help</a>
+          </div>
+        </div>
+        
+        <div class="faq-section">
+          <h3>Frequently Asked Questions</h3>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How do I track my order?</span>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can track your order by logging into your account and viewing your order history. We'll also send you tracking information via email once your order ships.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What is your return policy?</span>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We accept returns within 30 days of purchase. Items must be unused, in original condition with tags attached. Some items may be final sale.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How do I change my account password?</span>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Go to 'Your Account' and select 'Change Password'. You'll need to enter your current password and then create a new one.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What payment methods do you accept?</span>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>We accept all major credit cards, PayPal, and select digital wallets. Payment options are displayed at checkout.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How can I contact customer service?</span>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-answer">
+              <p>You can reach us via phone, email, or live chat during business hours. See our contact options below for details.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-section">
+          <h3>Need More Help?</h3>
+          <p>Our customer service team is ready to assist you with any questions.</p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <i class="fas fa-envelope"></i>
+              <h4>Email Support</h4>
+              <p>help@Noulika.com</p>
+              <p>Typically responds within 24 hours</p>
+              <a href="mailto:help@Noulika.com" class="help-btn">Email Us</a>
+            </div>
+            
+            <div class="contact-method">
+              <i class="fas fa-phone-alt"></i>
+              <h4>Call Support</h4>
+              <p>1-800-NOULIKA</p>
+              <p>Monday-Friday, 9am-5pm EST</p>
+              <a href="tel:18006685442" class="help-btn">Call Now</a>
+            </div>
+            
+            <div class="contact-method">
+              <i class="fas fa-comments"></i>
+              <h4>Contact Form</h4>
+              <p>Fill out our detailed contact form</p>
+              <p>We'll respond within 24 hours</p>
+              <a href="/memoire/html/contact.html" class="help-btn">Go to Form</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="home-button-container">
+          <a href="/memoire/html/index.html" class="btn-home">
+            <i class="fas fa-home"></i> Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="big_row">
+        <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="Noulika Store Logo">
+        <p>Follow us on social media for the latest updates and special promotions!</p>
+        <div class="icons_footer">
+          <a href="tel:18006685442"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://facebook.com/noulikastore"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com/noulikastore"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com/noulikastore"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Find It Fast</h4>
+        <div class="links">
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothing</a>
+          <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Shoes</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Perfume</a>
+          <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Makeup</a>
+          <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Quick Links</h4>
+        <div class="links">
+          <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+          <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+          <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Checkout Process</a>
+          <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Delivery Times</a>
+          <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Customer Service</h4>
+        <div class="links">
+          <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+          <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Terms & Conditions</a>
+          <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+          <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help Center</a>
+          <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="bottom_footer">
+      <div class="container">
+        <p>&copy; <span>Noulika Store.</span> All Rights Reserved. <span id="current-year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Add current year automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // FAQ toggle functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('i');
+        
+        answer.classList.toggle('show');
+        icon.classList.toggle('fa-plus');
+        icon.classList.toggle('fa-minus');
+      });
+    });
+  </script>
+</body>
+</html>

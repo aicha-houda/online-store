@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Online Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/memoire/css/style.css">
+  <link rel="stylesheet" href="/memoire/css/login.css">
+  
+  <style>
+    .contact-header {
+      background: var(--white_color);
+      color: var(--black_color);
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--main_color);
+    }
+    
+    .contact-header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    /* Contact Page Specific Styles */
+    .contact-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+    }
+    
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .contact-content {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.1);
+      border: 3px solid var(--main_color);
+    }
+    
+    .contact-content h1 {
+      color: var(--main_color);
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-align: center;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #ffe6f2;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .contact-method {
+      flex: 1;
+      min-width: 250px;
+      padding: 20px;
+      background: #fff9fb;
+      border-radius: 10px;
+      border: 1px solid #ffe6f2;
+    }
+    
+    .contact-method i {
+      color: var(--main_color);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+    
+    .contact-method h3 {
+      color: var(--main_color);
+      margin-bottom: 10px;
+    }
+    
+    .contact-method p {
+      color: var(--p_color);
+      line-height: 1.6;
+    }
+    
+    .contact-form {
+      margin-top: 40px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--main_color);
+      font-weight: 600;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--main_color);
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, var(--main_color), #d63384);
+      color: var(--white_color);
+      padding: 14px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+    }
+
+    /* Footer Icon Styles */
+    .icons_footer {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .icons_footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--main_color);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .icons_footer a:hover {
+      background-color: #d63384;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .contact-main {
+        padding: 40px 0;
+      }
+      
+      .contact-content {
+        padding: 30px;
+      }
+      
+      .contact-content h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-method {
+        min-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .contact-content {
+        padding: 25px 20px;
+      }
+      
+      .contact-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .icons_footer {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="contact-header">
+      <h1>Contact Noulika Store</h1>
+    </header>
+    <!-- Main Content -->
+    <main class="contact-main">
+        <div class="contact-container">
+            <div class="contact-content">
+                <h1>Contact Us</h1>
+                
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Our Location</h3>
+                        <p>123 Fashion Street<br>Tissemsilt, Algeria</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>Phone Number</h3>
+                        <p>+212 6 12 34 56 78<br>Mon-Fri: 9AM-6PM</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Address</h3>
+                        <p>info@noulikastore.com<br>support@noulikastore.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="/memoire/php/contact_form.php" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="">
+                <p>Follow us on social media for the latest updates and special promotions!</p>
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Find It Fast</h4>
+                <div class="links">
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothings</a>
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i>Shoes</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Parfum</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Make Up</a>
+                    <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Quick Links</h4>
+                <div class="links">
+                    <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+                    <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+                    <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a>
+                    <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Estimated Delivery Time</a>
+                    <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Service us</h4>
+                <div class="links">
+                    <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+                    <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help</a>
+                    <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQS</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Noulika Store.</span> All Rights Reserved.</p>
+                <div class="payment_img">
+                    <img src="/memoire/img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

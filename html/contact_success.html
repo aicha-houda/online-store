@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Sent - Online Store</title>
+  <link rel="icon" href="/memoire/image/logo.svg">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/memoire/css/style.css">
+  <link rel="stylesheet" href="/memoire/css/login.css">
+  
+  <style>
+    :root {
+      --main_color: #ff6b9d;
+      --p_color: #7b7b7b;
+      --white_color: #fff;
+    }
+    
+    .success-main {
+      padding: 60px 0;
+      background-color: #f9f9f9;
+      min-height: calc(100vh - 300px);
+      display: flex;
+      align-items: center;
+    }
+    
+    .success-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .success-box {
+      background: var(--white_color);
+      border-radius: 15px;
+      padding: 60px;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2);
+      border: 3px solid var(--main_color);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .success-icon {
+      font-size: 5rem;
+      color: var(--main_color);
+      margin-bottom: 20px;
+    }
+    
+    .success-box h1 {
+      color: var(--main_color);
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+    
+    .success-box p {
+      color: var(--p_color);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    
+    .back-link {
+      display: inline-block;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, var(--main_color), #d63384);
+      color: var(--white_color);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .back-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+    }
+
+    /* Footer Icon Styles */
+    .icons_footer {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .icons_footer a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--main_color);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .icons_footer a:hover {
+      background-color: #d63384;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .success-box {
+        padding: 40px;
+      }
+      
+      .success-box h1 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .success-box {
+        padding: 30px 20px;
+      }
+      
+      .success-box h1 {
+        font-size: 1.8rem;
+      }
+      
+      .success-icon {
+        font-size: 4rem;
+      }
+
+      .icons_footer {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+    <!-- Success Message Content -->
+    <main class="success-main">
+        <div class="success-container">
+            <div class="success-box">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>Message Sent Successfully!</h1>
+                <p>Thank you for contacting us. We'll get back to you as soon as possible.</p>
+                <a href="/memoire/html/contact.html" class="back-link">Back to Contact Page</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="big_row">
+                <img class="logo_footer" src="/memoire/image/black_logo.svg" alt="">
+                <p>Follow us on social media for the latest updates and special promotions!</p>
+                <div class="icons_footer">
+                    <a href="#"><i class="fa-solid fa-phone"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Find It Fast</h4>
+                <div class="links">
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i> Clothings</a>
+                    <a href="#swiper_clothing_shoes"><i class="fa-solid fa-caret-right"></i>Shoes</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Parfum</a>
+                    <a href="#swiper_makeup_parfum"><i class="fa-solid fa-caret-right"></i> Make Up</a>
+                    <a href="#swiper_accessories"><i class="fa-solid fa-caret-right"></i> Accessories</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Quick Links</h4>
+                <div class="links">
+                    <a href="/memoire/html/login.html"><i class="fa-solid fa-caret-right"></i> Your Account</a>
+                    <a href="/memoire/html/returns.html"><i class="fa-solid fa-caret-right"></i> Returns & Exchanges</a>
+                    <a href="/memoire/html/checkout.html"><i class="fa-solid fa-caret-right"></i> Shipping & Delivery</a>
+                    <a href="/memoire/html/delivery-time.html"><i class="fa-solid fa-caret-right"></i> Estimated Delivery Time</a>
+                    <a href="/memoire/html/history.html"><i class="fa-solid fa-caret-right"></i> Purchase History</a>
+                </div>
+            </div>
+            <div class="row">
+                <h4>Service us</h4>
+                <div class="links">
+                    <a href="/memoire/html/support.html"><i class="fa-solid fa-caret-right"></i> Support Center</a>
+                    <a href="/memoire/html/terms.html"><i class="fa-solid fa-caret-right"></i> Term & Conditions</a>
+                    <a href="/memoire/html/privacy.html"><i class="fa-solid fa-caret-right"></i> Privacy Policy</a>
+                    <a href="/memoire/html/help.html"><i class="fa-solid fa-caret-right"></i> Help</a>
+                    <a href="/memoire/html/feq.html"><i class="fa-solid fa-caret-right"></i> FAQS</a>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_footer">
+            <div class="container">
+                <p>&copy; <span>Noulika Store.</span> All Rights Reserved.</p>
+                <div class="payment_img">
+                    <img src="/memoire/img/payment_method.png" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/memoire/script/swiper.js"></script>
+    <script src="/memoire/script/items_home.js"></script>
+    <script src="/memoire/script/main.js"></script>
+</body>
+</html>
