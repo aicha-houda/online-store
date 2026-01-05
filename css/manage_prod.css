@@ -1,0 +1,323 @@
+/* Modern pink & pastel green styling for manage_products page */
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #fff7fa; /* Soft pastel pink */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #4a3f51; /* Dark muted purple for text */
+}
+
+/* Outer container with soft pink border and subtle shadow */
+.page-wrapper {
+    border: 6px solid #f7c6d0; /* Very soft pink */
+    border-radius: 18px;
+    min-height: calc(100vh - 40px);
+    background-color: #ffffff;
+    padding: 30px 30px 40px 30px;
+    box-shadow: 0 8px 25px rgba(247, 198, 208, 0.3);
+}
+
+/* Stylish centered title */
+h1 {
+    text-align: center;
+    color: #c64b7a; /* Medium pink/magenta */
+    font-size: 34px;
+    font-weight: 700;
+    margin: 25px 0 35px;
+    padding: 20px;
+    background-color: #ffe6f1; /* Very pale pink */
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(198, 75, 122, 0.12);
+    letter-spacing: 1.2px;
+}
+
+/* Main content container */
+.page-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    padding: 0 20px;
+}
+
+/* Left sidebar - form section */
+.left-bar {
+    width: 35%;
+    background-color: #fff1f5; /* soft pink */
+    padding: 30px 28px;
+    border-radius: 12px;
+    box-shadow: 0 5px 12px rgba(198, 75, 122, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.left-bar:hover {
+    background-color: #ffe8ef; /* lighten on hover */
+}
+
+.left-bar form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.left-bar form label {
+    font-weight: 600;
+    color: #b0406a; /* deeper pink */
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+.left-bar form input,
+.left-bar form select {
+    padding: 11px 18px;
+    border: 2.5px solid #f4b7c1; /* pastel pink border */
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #4a3f51;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.left-bar form input:focus,
+.left-bar form select:focus {
+    outline: none;
+    border-color: #c64b7a;
+    box-shadow: 0 0 10px rgba(198, 75, 122, 0.25);
+}
+
+/* Right sidebar - products table */
+.right-bar {
+    width: 65%;
+    background-color: #ffffff;
+    padding: 28px 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(198, 75, 122, 0.12);
+}
+
+/* Table styling */
+.product-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 22px;
+    font-size: 15px;
+    color: #4a3f51;
+}
+
+.product-table th {
+    background-color: #c64b7a;
+    color: #fff;
+    padding: 14px 18px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.product-table td {
+    border-bottom: 1px solid #ffe6f0;
+    padding: 14px 18px;
+    vertical-align: middle;
+}
+
+.product-table tr:nth-child(even) {
+    background-color: #fff4f8;
+}
+
+.product-table tr:hover {
+    background-color: #ffdce7;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Product images */
+.product-table img {
+    max-width: 55px;
+    max-height: 55px;
+    border-radius: 6px;
+    border: 1.5px solid #f4b7c1;
+    object-fit: contain;
+    background-color: #fff1f5;
+    padding: 5px;
+}
+
+.product-table td[data-label="Image"] {
+    text-align: center;
+}
+
+/* Buttons styling */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.btn {
+    padding: 9px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 14px;
+    user-select: none;
+}
+
+.edit-btn {
+    background-color: #c64b7a;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(198, 75, 122, 0.3);
+}
+
+.edit-btn:hover {
+    background-color: #af3c6a;
+    box-shadow: 0 6px 14px rgba(175, 60, 106, 0.45);
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background-color: #ff6f81;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(255, 111, 129, 0.3);
+}
+
+.delete-btn:hover {
+    background-color: #e65a69;
+    box-shadow: 0 6px 14px rgba(230, 90, 105, 0.45);
+    transform: translateY(-2px);
+}
+
+/* Confirmation message */
+.confirmation-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 3px solid #c64b7a;
+    padding: 28px 42px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+    box-shadow: 0 7px 25px rgba(198, 75, 122, 0.22);
+    border-radius: 14px;
+    z-index: 1000;
+    display: none;
+    max-width: 80%;
+}
+
+/* Add Product Button */
+.add-product-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #a7e8bb, #6ecf97); /* pastel green gradient */
+    color: #2f5d40;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    box-shadow: 0 5px 0 #4caf50, 0 6px 20px rgba(110, 207, 151, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    min-width: 190px;
+    text-align: center;
+}
+
+.add-product-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 rgba(0, 100, 0, 0.3), 0 9px 30px rgba(110, 207, 151, 0.6);
+    background: linear-gradient(135deg, #95dfa4, #54bb6f);
+}
+
+.add-product-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 rgba(0, 80, 0, 0.2);
+}
+
+.add-product-btn i {
+    color: #2f5d40;
+    font-size: 18px;
+}
+
+/* Enhanced Home Link Styling */
+.home-link {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #e58ea7, #c64b7a);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    box-shadow: 0 5px 0 #a03259, 0 6px 18px rgba(198, 75, 122, 0.5);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    min-width: 180px;
+    z-index: 1100;
+}
+
+.home-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 0 rgba(140, 40, 70, 0.5), 0 10px 28px rgba(198, 75, 122, 0.6);
+    background: linear-gradient(135deg, #db7594, #a83264);
+}
+
+.home-link:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 0 rgba(140, 40, 70, 0.3);
+}
+
+.home-link i {
+    color: white;
+    font-size: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .page-container {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    
+    .left-bar, .right-bar {
+        width: 100%;
+    }
+    
+    .left-bar {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 26px;
+        padding: 14px;
+    }
+
+    .btn, .add-product-btn, .home-link {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}

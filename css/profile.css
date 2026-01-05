@@ -1,0 +1,216 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fff0f6, #ffe6f0); /* soft pink gradient */
+    color: #1a1a1a; /* near black for readability */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Layout */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff; /* white */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 18px rgba(255, 105, 180, 0.15); /* pink shadow */
+    border: 2px solid #ff99cc; /* light pink border */
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    color: #d6336c; /* strong pink */
+}
+
+.logout-btn {
+    background-color: #d6336c; /* strong pink */
+    color: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #a82e56; /* darker pink */
+}
+
+/* Navigation Tabs */
+.account-nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.account-nav a {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #ffd6e7; /* pale pink */
+    color: #a31a45; /* dark pink */
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.account-nav a.active,
+.account-nav a:hover {
+    background-color: #d6336c; /* strong pink */
+    color: white;
+}
+
+/* Profile Section Layout */
+.profile-section {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Sidebar */
+.profile-sidebar {
+    flex: 1;
+    max-width: 300px;
+    background-color: #fff0f6; /* very pale pink */
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(214, 51, 108, 0.1); /* pink shadow */
+}
+
+.profile-sidebar h3 {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    color: #d6336c; /* strong pink */
+}
+
+.profile-sidebar p {
+    color: #5c1a3a; /* dark pink */
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.profile-sidebar h4 {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #7a1e45;
+    border-bottom: 1px solid #ff99cc;
+    padding-bottom: 5px;
+}
+
+.profile-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.profile-sidebar ul li {
+    margin: 8px 0;
+}
+
+.profile-sidebar ul li a {
+    color: #7a1e45;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.profile-sidebar ul li a:hover {
+    color: #4d122d;
+}
+
+/* Profile Picture */
+.profile-initial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6699, #cc3366); /* pink gradient */
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+    border: 4px solid #ffd6e7;
+}
+
+/* Content Cards */
+.profile-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(214, 51, 108, 0.07);
+    border-left: 6px solid #d6336c; /* strong pink accent */
+}
+
+.info-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #d6336c;
+    border-bottom: 1px solid #ff99cc;
+    padding-bottom: 5px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding: 5px 0;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #3a3a3a; /* blackish */
+}
+
+.info-value {
+    color: #1a1a1a; /* near black */
+}
+
+.edit-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #d6336c;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #a82e56;
+}
+
+/* RTL Support */
+html[lang="ar"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[lang="ar"] .profile-section {
+    flex-direction: row-reverse;
+}
